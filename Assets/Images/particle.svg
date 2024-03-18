@@ -1,0 +1,12 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+	<title>New Project</title>
+	<defs>
+		<image  width="32" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAxJREFUeJxjYBjcAAAAoAABsAZiGAAAAABJRU5ErkJggg=="/>
+		<filter x="-50%" y="-50%" width="200%" height="200%" id="f1" ><feDropShadow dx="0" dy="0" stdDeviation="6.25" flood-color="#ffffff" flood-opacity="2"/></filter>
+	</defs>
+	<style>
+		.s0 { filter: url(#f1);fill: #ffffff } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<path id="Shape 1" class="s0" d="m16 22.8c-3.7 0-6.8-3.1-6.8-6.8 0-3.7 3.1-6.8 6.8-6.8 3.7 0 6.8 3.1 6.8 6.8 0 3.7-3.1 6.8-6.8 6.8z"/>
+</svg>

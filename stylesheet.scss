@@ -1,0 +1,285 @@
+body, html{
+  padding: 0;
+  margin: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;  
+  overflow-x: hidden;
+}
+
+#progressBarContainer{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 1.0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#progress-bar{
+  width:30%;
+  margin-top: 0.5%;
+  height: 2%;
+}
+
+label{
+  color: white;
+  font-size: 2rem;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+
+#page_wrapper{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
+}
+
+.header{
+  .home, .about{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row;
+    flex-flow: row;
+  }
+
+  .top_banner{
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    display: flex;
+    font-size: 150%;
+  }
+
+  padding-top: 20px;
+  position: fixed;
+  top: 2.5vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  left: calc(10px + env(safe-area-inset-left));
+  right: calc(10px + env(safe-area-inset-right));
+  z-index: 11;
+  pointer-events: none;
+  color: white;
+}
+
+#main_menu{
+  button{
+    position: relative;
+    z-index: 15;
+  }
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.modalMainText{
+  height: 100%;
+  width: 100%;
+  padding-left: 25%;
+  padding-right: 25%;
+  background-color: rgb(0, 0, 0);
+  color:white;
+  .ModalTitle{
+    text-align: center;
+    margin-top:50px;
+    margin-bottom:50px;
+    font-size: 2rem;
+  }
+  .modalBodyText{
+    font-size: 1.8rem;
+  }
+}
+
+#app{
+.popUps{
+  display: none;
+  padding: 0;
+  margin: 0;
+  .overview{
+    .close{
+      position:relative;
+      right:1%;
+      color: #888888;
+      float: right;
+      font-size: 80px;
+      font-weight: bold;
+      z-index: 10;
+    }
+    .close:hover, .close:focus {
+      color: #5a5a5a;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 0;
+    margin: 0;
+    display: none;
+    z-index: 50;
+    .titleImage{
+      height: 50%;
+      position: relative;
+      background-color: rgb(0, 0, 0);
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .coverImg{
+        max-width: 100%; /* Ensure image doesn't exceed container width */
+        max-height: 100%; /* Ensure image doesn't exceed container height */
+        position: absolute; /* Position the image relative to the container */
+        top: 50%; /* Position the image vertically centered */
+        left: 50%; /* Position the image horizontally centered */
+        transform: translate(-50%, -50%); /* Center the image */
+      }
+    }
+  }
+  
+}
+.LearnMoreButton {
+  display: none;
+  opacity: 0;
+  .LMCircle{
+    position: absolute;
+    opacity: .5;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    width: 66px;
+    height: 66px;
+    top: 58%;
+    left: -80px;
+  }
+  .LMLabel{
+    color:white;
+    font-size: 100%;
+  }
+  
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 60%;
+  width: 100px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  // visibility: hidden
+  
+}
+  .NavBar{
+    position: absolute;
+    height: 40vh;
+    width: 5vw;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    margin-left: 5vw;
+    a{
+      margin-bottom: 2.5vh;
+      margin-top: 2.5vh;
+    }
+    .NavBar_Sphere{
+      width: 10px; /* Adjust the width to control the size of the sphere */
+      height: 10px; /* This value should be the same as the width to create a sphere */
+      background-color: grey; /* Adjust the color as needed */
+      border-radius: 50%; /* Make the element a circle */
+    }
+    .NavBar_Sphere:hover{
+      background-color: white;
+    }
+  }
+  .extra_info{
+    bottom: 50vh;
+    width: 20%;
+    margin: auto;
+    color: white;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 50vh;
+    left: 20vw;
+    z-index: 14;
+  }
+  .Chapter_Content{
+    p{
+      color:white;
+      font-size: 100%;
+    }
+  bottom: 5vh;
+  width: 20%;
+  margin: auto;
+  color: white;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  top: 70vh;
+  right: 20vw;
+  z-index: 14;
+  }
+}
+
+
+h1{
+  color: white;
+  font-size: 500%;
+  text-transform: uppercase;
+}
+
+.webgl{
+top: 0;
+left: 0;
+z-index: -1;
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+.titleDiv{
+  position: absolute;
+  z-index: 1;
+}
+
+.title{
+  text-transform: uppercase;
+  font-size: 600%;
+}
+
+.play_button{
+  font-size: 600%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin: 0 auto;
+}
+
+.content{
+  justify-content: center;
+  margin: 0 auto;
+}
