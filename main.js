@@ -8,6 +8,7 @@ async function main(){
     // init.addEventListners();
 }
 
+alert('test');
 const learnMoreButtons = document.querySelectorAll('.LearnMoreButton');
 const popup = document.querySelector('.popUps');
 var modals = document.querySelectorAll('.overview');
