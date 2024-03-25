@@ -20,9 +20,9 @@ function createParticles(){
     const particleCount = 5000;
     
     for (let i = 0; i < particleCount; i++){
-        const x = (Math.random() - 0.5) * 10;
-        const y = (Math.random() - 0.5) * 10;
-        const z = (Math.random() - 0.5) * 5;
+        const x = (Math.random() - 0.5) * 30;
+        const y = (Math.random() - 0.5) * 30;
+        const z = (Math.random() - 0.5) * 15;
         positions.push(x, y, z);
     }
     geometry.setAttribute('position', new Float32BufferAttribute(positions, 3));

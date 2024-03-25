@@ -5,7 +5,11 @@ import sunVertexHalo from '../../Assets/Shaders/sunShaders/sunVertexHalo.js';
 import sunFragmentHalo from '../../Assets/Shaders/sunShaders/sunFragmentHalo.js';  
 import sunFragmentTexture from '../../Assets/Shaders/sunShaders/sunFragmentTexture.js';  
 import sunVertexTexture from '../../Assets/Shaders/sunShaders/sunVertexTexture.js';
-import { getFresnelMat } from "../../Assets/Shaders/fresnelMat.js";
+import { getFresnelMat } from "../../Assets/Shaders/fresnelMatSun.js";
+// import sunFragmentHalo from "../../Assets/Shaders/sunShaders/sunFragmentHalo.js";
+// import sunVertexHalo from "../../Assets/Shaders/sunShaders/sunVertexHalo.js";
+
+
 
 var sunGroup = new Group();
 
@@ -23,9 +27,26 @@ var material = new ShaderMaterial({
 })
 
 var materialTexture = new ShaderMaterial({
-    side: DoubleSide,
+    side: BackSide,
     vertexShader: sunVertexTexture,
     fragmentShader: sunFragmentTexture,
+    transparent: true,
+    opacity:1,
+    extensions: {
+        derivatives: " #extension GL_OES_standard_derivatives : enable",
+    },
+    uniforms: {
+        time: {value: 0}, 
+        resolution: {value: new Vector4()},
+        uPerlin: {value: null}
+    }
+})
+
+var haloTexture = new ShaderMaterial({
+    side: BackSide,
+    // transparent: true,
+    vertexShader: sunVertexHalo,
+    fragmentShader: sunFragmentHalo,
     extensions: {
         derivatives: " #extension GL_OES_standard_derivatives : enable",
     },
@@ -38,21 +59,27 @@ var materialTexture = new ShaderMaterial({
 
 function sunMainBody(){
     var sunGroup = new Group();
-    var geometry = new SphereGeometry(1,30,30);
+    var geometry = new SphereGeometry(1,50,50);
     // var mat = new MeshStandardMaterial();
     var sunMesh = new Mesh(geometry, materialTexture);
     var halo = sunHalo();
-    sunGroup.add(sunMesh, halo);
+    var halo2 = sunHalo2();
+    sunGroup.add(sunMesh, halo, halo2);
     return sunGroup;
 }
 
 function sunHalo(){
     var mat = getFresnelMat();
     mat.uniforms.color1.value = new Color(0xF0E68C);
-    var halogeometry = new SphereGeometry(1.005,30,30);
+    var halogeometry = new SphereGeometry(1.2,30,30);
     var sunHalo = new Mesh(halogeometry, mat);
     return sunHalo;
+}
 
+function sunHalo2(){
+    var halogeometry = new SphereGeometry(1.2,30,30);
+    var sunHalo = new Mesh(halogeometry, haloTexture);
+    return sunHalo;
 }
 
 function sun(){

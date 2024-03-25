@@ -40,10 +40,80 @@ label {
   position: absolute;
 }
 
+.twoDContent {
+  position: absolute;
+  z-index: 500;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.twoDContent .innerContent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.twoDContent .innerContent .galaxyImgCon {
+  height: 100%;
+  width: 100%;
+}
+.twoDContent .innerContent .galaxyImgCon .galaxyImg {
+  position: absolute;
+}
+.twoDContent .innerContent .galaxyImgCon .galaxyImg:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.twoDContent .innerContent .galaxyImgCon #andromeda {
+  top: -100px;
+  left: -80px;
+  width: 500px;
+  height: auto;
+}
+.twoDContent .innerContent .galaxyImgCon #milkyway {
+  top: -150px;
+  left: 450px;
+  width: 600px;
+  height: auto;
+}
+.twoDContent .innerContent .galaxyImgCon #triangulum {
+  top: 300px; /* Adjust this value to position image2 */
+  left: 50%; /* Adjust this value to position image2 */
+  transform: translateX(-50%);
+}
+.twoDContent .innerContent .innertext {
+  color: white;
+  position: absolute;
+  z-index: 50;
+  width: 50%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+.twoDContent .innerContent .bgnGraphics {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 1;
+  width: 700px; /* Adjust the width and height as needed */
+  height: 700px;
+  border-radius: 50%; /* This makes the shape circular */
+  border: 3px dotted rgb(255, 255, 255); /* Change the color and thickness of the outline */
+  box-sizing: border-box; /* Ensures that the border width is included in the total width/height */
+}
+
 .header {
   padding-top: 20px;
   position: fixed;
-  top: 2.5vh;
+  bottom: 2.5vh;
   margin-left: 2vw;
   margin-right: 2vw;
   left: calc(10px + env(safe-area-inset-left));
@@ -52,7 +122,7 @@ label {
   pointer-events: none;
   color: white;
 }
-.header .home, .header .about {
+.header .about {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,14 +130,15 @@ label {
   -webkit-box-direction: normal;
   -ms-flex-flow: row;
   flex-flow: row;
+  font-size: 1rem;
 }
 .header .top_banner {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: end;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
+  align-items: end;
   position: relative;
   z-index: 5;
   width: 100%;
@@ -92,22 +163,31 @@ label {
   display: none;
 }
 
-.modalMainText {
-  height: 100%;
-  width: 100%;
-  padding-left: 25%;
-  padding-right: 25%;
-  background-color: rgb(0, 0, 0);
-  color: white;
+#vastnessOfUniverse {
+  display: "none";
+  opacity: 0;
 }
-.modalMainText .ModalTitle {
+
+.close {
+  position: absolute;
+  width: 50px; /* Set the width to any percentage value you desire */
+  height: 50px;
+  right: 2%;
+  top: 3.5%;
+  color: #ffffff;
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  z-index: 10;
+  border: 1px solid rgb(136, 212, 255);
+  border-radius: 50%;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: 2rem;
 }
-.modalMainText .modalBodyText {
-  font-size: 1.8rem;
+
+.close:hover, .close:focus {
+  color: #5a5a5a;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #app .popUps {
@@ -116,7 +196,7 @@ label {
   margin: 0;
 }
 #app .popUps .overview {
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
   background-color: rgb(0, 0, 0);
@@ -125,40 +205,62 @@ label {
   display: none;
   z-index: 50;
 }
-#app .popUps .overview .close {
+#app .popUps .overview .modalContainer {
   position: relative;
-  right: 1%;
-  color: #888888;
-  float: right;
-  font-size: 80px;
-  font-weight: bold;
-  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 50px; /* Adjust as needed */
+  color: white; /* Text color */
 }
-#app .popUps .overview .close:hover, #app .popUps .overview .close:focus {
-  color: #5a5a5a;
-  text-decoration: none;
-  cursor: pointer;
-}
-#app .popUps .overview .titleImage {
-  height: 50%;
+#app .popUps .overview .modalContainer .modalTitleContainer {
   position: relative;
-  background-color: rgb(0, 0, 0);
-  padding: 0;
+  height: auto;
+  text-transform: uppercase;
+  width: 100%;
+  padding-left: 0;
   margin: 0;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  box-sizing: border-box;
 }
-#app .popUps .overview .titleImage .coverImg {
-  max-width: 100%; /* Ensure image doesn't exceed container width */
-  max-height: 100%; /* Ensure image doesn't exceed container height */
-  position: absolute; /* Position the image relative to the container */
-  top: 50%; /* Position the image vertically centered */
-  left: 50%; /* Position the image horizontally centered */
-  transform: translate(-50%, -50%); /* Center the image */
+#app .popUps .overview .modalContainer .modalTitleContainer .modalTitle {
+  font-size: 15rem;
+  letter-spacing: normal;
+  padding-left: 0;
+  margin: 0;
 }
-#app .LearnMoreButton {
+#app .popUps .overview .modalContainer .modalTitleContainer .stats {
+  padding-left: 21px;
+  color: rgb(206, 206, 206);
+  font-size: 1.5rem;
+}
+#app .popUps .overview .modalContainer .modalMainBody {
+  position: relative;
+  margin-top: 0.8%;
+  height: auto;
+  width: 100%;
+  padding: 0;
+}
+#app .popUps .overview .modalContainer .modalMainBody .modalMainText {
+  padding-left: 21px;
+  display: block;
+}
+#app .popUps .overview .modalContainer .modalMainBody .modalMainText .description {
+  width: 40%;
+}
+#app .popUps .overview .coverImg {
+  display: block;
+  width: 100%;
+  transform: scaleX(-1);
+  height: auto;
+  padding: 0;
+  margin: 0;
+  z-index: -1;
+}
+
+.LearnMoreButton {
   display: none;
   opacity: 0;
   position: absolute;
@@ -169,7 +271,7 @@ label {
   transform: translate(-50%, -50%);
   z-index: 10;
 }
-#app .LearnMoreButton .LMCircle {
+.LearnMoreButton .LMCircle {
   position: absolute;
   opacity: 0.5;
   border: 2px solid #ffffff;
@@ -179,11 +281,12 @@ label {
   top: 58%;
   left: -80px;
 }
-#app .LearnMoreButton .LMLabel {
+.LearnMoreButton .LMLabel {
   color: white;
   font-size: 100%;
 }
-#app .NavBar {
+
+.NavBar {
   position: absolute;
   height: 40vh;
   width: 5vw;
@@ -193,52 +296,46 @@ label {
   z-index: 5;
   margin-left: 5vw;
 }
-#app .NavBar a {
+.NavBar a {
   margin-bottom: 2.5vh;
   margin-top: 2.5vh;
 }
-#app .NavBar .NavBar_Sphere {
+.NavBar .NavBar_Sphere {
   width: 10px; /* Adjust the width to control the size of the sphere */
   height: 10px; /* This value should be the same as the width to create a sphere */
   background-color: grey; /* Adjust the color as needed */
   border-radius: 50%; /* Make the element a circle */
 }
-#app .NavBar .NavBar_Sphere:hover {
+.NavBar .NavBar_Sphere:hover {
   background-color: white;
 }
-#app .extra_info {
+
+.extra_info {
   bottom: 50vh;
   width: 20%;
   margin: auto;
   color: white;
   margin: 0 auto;
-  padding: 10px;
   position: relative;
   top: 50vh;
   left: 20vw;
   z-index: 14;
 }
-#app .Chapter_Content {
+
+.Chapter_Content {
   bottom: 5vh;
   width: 20%;
   margin: auto;
   color: white;
   margin: 0 auto;
-  padding: 10px;
   position: relative;
   top: 70vh;
   right: 20vw;
   z-index: 14;
 }
-#app .Chapter_Content p {
+.Chapter_Content p {
   color: white;
   font-size: 100%;
-}
-
-h1 {
-  color: white;
-  font-size: 500%;
-  text-transform: uppercase;
 }
 
 .webgl {

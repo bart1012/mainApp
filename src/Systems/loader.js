@@ -14,16 +14,18 @@ loader.setDRACOLoader( dracoLoader );
 async function load_GLTF(){
 
 
-    const [ast3Data, telescopeData] = await Promise.all([
+    const [ast3Data, telescopeData, spaceshipData] = await Promise.all([
         loader.loadAsync('../../Assets/Models/ast3.glb'),
         loader.loadAsync('../../Assets/Models/Hubble.glb'),
+        loader.loadAsync('../../Assets/Models/spaceship.glb'),
         ]);
 
     const ast3 = ast3Data.scene.children[0];
     const hubbleTelescope = telescopeData.scene.children[0];
+    const spaceship = spaceshipData.scene.children[0];
 
 
-    return {ast3, hubbleTelescope};
+    return {ast3, hubbleTelescope, spaceship};
 };
 
 export {load_GLTF};

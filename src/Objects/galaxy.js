@@ -2,6 +2,7 @@ import { NormalBlending, PlaneGeometry, Vector4, InstancedBufferAttribute, Mesh,
 import galaxyFragment from "../../Assets/Shaders/fragment_galaxy";
 import galaxyVertex from "../../Assets/Shaders/vetex_galaxy";
 import particle from '../../Assets/Images/particle.webp';
+import { Color } from "three";
 
 const mat = new ShaderMaterial({
     vertexShader: galaxyVertex,
@@ -9,7 +10,8 @@ const mat = new ShaderMaterial({
     uniforms:{
         time: {value:0},
         uTexture: {value: new TextureLoader().load(particle)},
-        resolution: {value: new Vector4}
+        resolution: {value: new Vector4},
+        uColor: {value: new Color(0xff0000)} 
     },
     transparent: true,
     depthTest: false,
@@ -34,7 +36,7 @@ function galaxy(){
         let theta = Math.random()*2*Math.PI;
         let r = lerp(min_rad,max_rad,Math.random());
         let x = r*Math.sin(theta);
-        let y = (Math.random()-0.5) * 0.05;
+        let y = (Math.random()-0.5) * 5;
         let z = r*Math.cos(theta);
         pos.set([x,y,z], i*3);
     }

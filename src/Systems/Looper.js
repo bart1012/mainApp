@@ -3,7 +3,7 @@ let clock = new Clock();
 
 
 class Loop {
-    constructor(camera, scene, renderer, renderer_2D, mat, sunmat, sunmatMain, cubeCam, rendertarget, scene1){
+    constructor(camera, scene, renderer, renderer_2D, mat, sunmat, sunmatMain, cubeCam, rendertarget, scene1, solarSystemOrbitTime){
         this.camera = camera;
         this.scene = scene;
         this.renderer = renderer;
@@ -15,6 +15,7 @@ class Loop {
         this.sunmatMain = sunmatMain;
         this.rendertarget = rendertarget;
         this.scene1 = scene1;
+        this.solarSystemOrbitTime = solarSystemOrbitTime.time;
         console.log(this.rendertarget);
         console.log(this.rendertarget.texture);
     }
@@ -24,6 +25,7 @@ class Loop {
             this.mat.uniforms.time.value += clock.getDelta();
             this.sunmat.uniforms.time.value += 0.05;
             this.sunmatMain.uniforms.time.value += 0.05;
+            this.solarSystemOrbitTime += 0.05;
             this.sunmatMain.uniforms.uPerlin.value = this.rendertarget.texture;
             // console.log(this.sunmat.uniforms.time.value );
             this.tick();

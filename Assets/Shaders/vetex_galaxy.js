@@ -270,6 +270,9 @@ const galaxyVertex = /*glsl*/`
                 float n_xyzw = mix(n_yzw.x, n_yzw.y, fade_xyzw.x);
                 return 2.2 * n_xyzw;
             }
+
+          
+
             attribute vec3 pos;
             varying vec2 vUv;
             mat3 rotation3dY(float angle){
@@ -282,7 +285,15 @@ const galaxyVertex = /*glsl*/`
                 );
             }
             uniform float time;
-
+            /*
+            vec3 fmb_vec3(vec3 p, float frequency, float offset){
+                return vec3(
+                    cnoise(vec4(p + vec3(offset)) * frequency,1.),
+                    cnoise(vec4(p + vec3(offset + 20.0)) * frequency,1.),
+                    cnoise(vec4(p + vec3(offset - 30.0)) * frequency,1.)
+                );
+            }
+            */
             void main(){
                 vUv = position.xy+vec2(0.5);
                 vec3 finalpos = pos + position*0.1;
