@@ -9,6 +9,10 @@ async function main(){
 }
 
 alert('test');
+const body = document.body;
+
+// Change the background color
+body.style.backgroundColor = 'lightblue'; // Change 'lightblue' to the desired color
 const learnMoreButtons = document.querySelectorAll('.LearnMoreButton');
 const popup = document.querySelector('.popUps');
 var modals = document.querySelectorAll('.overview');
