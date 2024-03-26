@@ -1,4 +1,4 @@
-import { World } from "/src/World/world.js";
+import { World } from "src/World/world.js";
 
 async function main(){
     const container = document.querySelector('canvas.webgl');
